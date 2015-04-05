@@ -13,6 +13,7 @@ class mpd::params {
   $filesystem_charset               = 'UTF-8'
   $follow_inside_symlinks           = 'yes'
   $follow_outside_symlinks          = 'yes'
+  $gapless_mp3_playback             = 'yes'
   $group                            = 'nogroup'
   $log_file                         = '/var/log/mpd/mpd.log'
   $log_level                        = 'default'
