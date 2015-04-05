@@ -5,7 +5,6 @@ class mpd::params {
   $audio_output_format              = '44100:16:2'
   $auto_update                      = 'yes'
   $auto_update_depth                = '3'
-  $bind_to_address                  = '/var/run/mpd/socket'
   $bind_to_address                  = '127.0.0.1'
   $buffer_before_play               = '10%'
   $connection_timeout               = '60'
