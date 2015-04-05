@@ -1,0 +1,104 @@
+# Files and directories #######################################################
+music_directory    "<%= @music_directory %>"
+playlist_directory "<%= @playlist_directory %>"
+db_file            "<%= @db_file %>"
+log_file           "<%= @log_file %>"
+pid_file           "<%= @pid_file %>"
+state_file         "<%= @state_file %>"
+sticker_file       "<%= @sticker_file %>"
+###############################################################################
+
+# General music daemon options ################################################
+user                             "<%= @user %>"
+group                            "<%= @group %>"
+bind_to_address                  "<%= @bind_to_address %>"
+port                             "<%= @port %>"
+log_level                        "<%= @log_level %>"
+gapless_mp                       "<%= @gapless_mp %>"
+save_absolute_paths_in_playlists "<%= @save_absolute_paths_in_playlists %>"
+metadata_to_use                  "<%= @metadata_to_use %>"
+auto_update                      "<%= @auto_update %>"
+auto_update_depth                "<%= @auto_update_depth %>"
+##############################################################################
+
+# Symbolic link behavior ######################################################
+follow_outside_symlinks "<%= @follow_outside_symlinks %>"
+follow_inside_symlinks  "<%= @follow_inside_symlinks %>"
+###############################################################################
+
+# Zeroconf / Avahi Service Discovery ##########################################
+zeroconf_enabled "<%= @zeroconf_enabled %>"
+zeroconf_name    "<%= @zeroconf_name %>"
+###############################################################################
+
+# Permissions #################################################################
+password            "<%= @password %>"
+default_permissions "<%= @default_permissions %>"
+###############################################################################
+
+# Input #######################################################################
+input {
+        plugin "curl"
+#       proxy "proxy.isp.com:8080"
+#       proxy_user "user"
+#       proxy_password "password"
+}
+###############################################################################
+
+# Audio Output ################################################################
+audio_output {
+	type		"alsa"
+	name		"My ALSA Device"
+	device		"hw:0,0"	# optional
+	format		"44100:16:2"	# optional
+	mixer_device	"default"	# optional
+	mixer_control	"PCM"		# optional
+	mixer_index	"0"		# optional
+}
+###############################################################################
+
+# Volume control mixer ########################################################
+<% if @mixer_type -%>
+mixer_type "<%= @mixer_type %>"
+<% end -%>
+###############################################################################
+replaygain_preamp    "<%= @replaygain_preamp %>"
+volume_normalization "<%= @volume_normalization %>"
+###############################################################################
+
+# MPD Internal Buffering ######################################################
+audio_buffer_size  "<%= @audio_buffer_size %>"
+buffer_before_play "<%= @buffer_before_play %>"
+###############################################################################
+
+# Resource Limitations ########################################################
+connection_timeout     "<%= @connection_timeout %>"
+max_connections        "<%= @max_connections %>"
+max_playlist_length    "<%= @max_playlist_length %>"
+max_command_list_size  "<%= @max_command_list_size %>"
+max_output_buffer_size "<%= @max_output_buffer_size %>"
+###############################################################################
+
+# Character Encoding ##########################################################
+filesystem_charset "<%= @filesystem_charset %>"
+id                 "<%= @id %>"
+###############################################################################
+
+# SIDPlay decoder #############################################################
+# songlength_database:
+#  Location of your songlengths file, as distributed with the HVSC.
+#  The sidplay plugin checks this for matching MD5 fingerprints.
+#  See http://www.c64.org/HVSC/DOCUMENTS/Songlengths.faq
+# default_songlength:
+#  This is the default playing time in seconds for songs not in the
+#  songlength database, or in case you're not using a database.
+#  A value of 0 means play indefinitely.
+# filter:
+#  Turns the SID filter emulation on or off.
+#decoder {
+#       plugin                  "sidplay"
+#       songlength_database     "/media/C64Music/DOCUMENTS/Songlengths.txt"
+#       default_songlength      "120"
+#       filter "true"
+#}
+###############################################################################
