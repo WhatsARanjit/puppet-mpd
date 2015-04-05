@@ -74,6 +74,7 @@ class mpd (
   service { $service:
     ensure    => $_ensure,
     enable    => true,
+    start     => '/usr/bin/mpd',
     subscribe => File['/etc/mpd.conf'],
   }
 
