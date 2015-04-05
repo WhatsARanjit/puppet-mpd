@@ -15,6 +15,7 @@ class mpd::params {
   $follow_outside_symlinks          = 'yes'
   $gapless_mp3_playback             = 'yes'
   $group                            = 'nogroup'
+  $id3v1_encoding                   = 'root'
   $log_file                         = '/var/log/mpd/mpd.log'
   $log_level                        = 'default'
   $max_command_list_size            = '2048'

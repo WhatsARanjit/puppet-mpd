@@ -15,6 +15,7 @@ class mpd (
   $filesystem_charset               = $mpd::params::filesystem_charset,
   $follow_inside_symlinks           = $mpd::params::follow_inside_symlinks,
   $follow_outside_symlinks          = $mpd::params::follow_outside_symlinks,
+  $id3v1_encoding                   = $mpd::params::id3v1_encoding,
   $gapless_mp3_playback             = $mpd::params::gapless_mp3_playback,
   $group                            = $mpd::params::group,
   $log_file                         = $mpd::params::log_file,
