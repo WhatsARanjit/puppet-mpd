@@ -41,6 +41,10 @@ class mpd (
   $volume_normalization             = $mpd::params::volume_normalization,
   $zeroconf_enabled                 = $mpd::params::zeroconf_enabled,
   $zeroconf_name                    = $mpd::params::zeroconf_name,
+  # MPC options
+  $mpc                              = false,
+  $mpc_pkg                          = 'mpc',
+  $mpc_ensure                       = 'installed',
 ) inherits ::mpd::params {
 
   package { $package:
@@ -67,8 +71,17 @@ class mpd (
   }
 
   service { $service:
-    ensure => $_ensure,
-    enable => true,
+    ensure    => $_ensure,
+    enable    => true,
+    subscribe => File['mpd conf'],
+  }
+
+  if $mpc {
+
+    package { $mpc_pkg:
+      ensure => $mpc_ensure,
+    }
+
   }
 
 }
