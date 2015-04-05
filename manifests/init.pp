@@ -51,13 +51,12 @@ class mpd (
     ensure => $ensure,
   }
 
-  file { 'mpd conf':
+  file { '/etc/mpd.conf':
     ensure  => file,
+    owner   => $user,
+    group   => $group,
+    mode    => '0644',
     content => template('mpd/mpd.conf.erb'),
-    path   => $user ? {
-      'root'  => '/root/mpd.conf',
-      default => "/home/${user}/.mpdconf",
-    }
   }
 
   case $ensure {
@@ -73,7 +72,7 @@ class mpd (
   service { $service:
     ensure    => $_ensure,
     enable    => true,
-    subscribe => File['mpd conf'],
+    subscribe => File['/etc/mpd.conf'],
   }
 
   if $mpc {
