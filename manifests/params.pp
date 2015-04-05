@@ -21,9 +21,7 @@ class mpd::params {
   $max_output_buffer_size           = '8192'
   $max_playlist_length              = '16384'
   $metadata_to_use                  = 'artist,album,title,track,name,genre,date,composer,performer,disc'
-  $mixer_type                       = 'disabled'
-  $mixer_type                       = 'hardware'
-  $mixer_type                       = 'software'
+  $mixer_type                       = undef
   $music_directory                  = '/var/lib/mpd/music'
   $password                         = 'password@read,add,control,admin'
   $pid_file                         = '/var/run/mpd/pid'
